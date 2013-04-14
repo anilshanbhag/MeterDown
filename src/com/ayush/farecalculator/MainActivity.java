@@ -2,20 +2,22 @@ package com.ayush.farecalculator;
 
 import java.text.DecimalFormat;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -28,13 +30,9 @@ public class MainActivity extends Activity {
 	private RadioButton dayButton;
 	private RadioButton nightButton;
 	
-	 /** An array of strings to populate dropdown list */
-    String[] actions = new String[]
-    {
-        "Auto",
-        "Taxi",
-    };
-    int choice,fare;
+	 
+    
+    int choice,fare,cityno;
     double factor=1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -42,6 +40,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		this.findAllViewById();
+		
+		distanceInp.setRawInputType(Configuration.KEYBOARD_12KEY);
 		
 		fareCal.setOnClickListener(new OnClickListener() {			
 			@Override
@@ -65,13 +65,20 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		  /** Create an array adapter to populate dropdownlist */
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, actions);
+		//getActionBar().setDisplayShowTitleEnabled(false);
+		/** prev implementation
+		 *   Create an array adapter to populate dropdownlist 
+        * ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, actions);
+        
+        * ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, city);
  
-        /** Enabling dropdown list navigation for the action bar */
-        getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
- 
-        /** Defining Navigation listener */
+        ActionBar actionbar=getActionBar();
+        
+        
+         Enabling dropdown list navigation for the action bar 
+        
+        
+         Defining Navigation listener 
         ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() 
         {
  
@@ -82,10 +89,22 @@ public class MainActivity extends Activity {
     			return false;
         	}
         };
+        
+        ActionBar.OnNavigationListener navigationListener1=new OnNavigationListener()
+        {
+        	@Override
+        	public boolean onNavigationItemSelected(int itemPosition,long itemId)
+        	{
+        		cityno=itemPosition;
+        		return false;
+        	}
+        };
  
-        /** Setting dropdown items and item navigation listener for the actionbar */
-        getActionBar().setListNavigationCallbacks(adapter, navigationListener);
-    
+         Setting dropdown items and item navigation listener for the actionbar 
+        actionbar.setListNavigationCallbacks(adapter, navigationListener);
+        actionbar.setListNavigationCallbacks(adapter1, navigationListener1);
+		 
+        * */
     }
 
 	@Override
@@ -93,7 +112,51 @@ public class MainActivity extends Activity {
 	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		
+		MenuItem citySpinner = menu.findItem( R.id.menu_city_spinner);
+	    setupCitySpinner( citySpinner );
+
+	    MenuItem typeSpinner = menu.findItem( R.id.menu_type_spinner );
+	    setupTypeSpinner( typeSpinner );
+
+	    return super.onCreateOptionsMenu(menu);
+		
+	}
+	private void setupCitySpinner(MenuItem item) 
+	{
+	    View view = item.getActionView();
+	    if (view instanceof Spinner)
+	    {
+	        Spinner spinner = (Spinner) view;
+	        spinner.setAdapter(ArrayAdapter.createFromResource(this,R.array.city_options,android.R.layout.simple_spinner_dropdown_item));
+	        spinner.setOnItemSelectedListener(new CitySpinnerActivity());
+	    }
+	}
+	private void setupTypeSpinner(MenuItem item) 
+	{
+	    View view = item.getActionView();
+	    if (view instanceof Spinner)
+	    {
+	        Spinner spinner = (Spinner) view;
+	        spinner.setAdapter(ArrayAdapter.createFromResource(this,R.array.type_options,android.R.layout.simple_spinner_dropdown_item));
+	        spinner.setOnItemSelectedListener(new TypeSpinnerActivity());
+	    }
+	}
+	public class CitySpinnerActivity extends Activity implements OnItemSelectedListener
+	{
+		public void onItemSelected(AdapterView<?> parent,View view,int pos,long id)
+		{
+			cityno=pos;
+		}
+		public void onNothingSelected(AdapterView<?> parent){}
+	}
+	public class TypeSpinnerActivity extends Activity implements OnItemSelectedListener
+	{
+		public void onItemSelected(AdapterView<?> parent,View view,int pos,long id)
+		{
+			choice=pos;
+		}
+		public void onNothingSelected(AdapterView<?> parent){}
 	}
 	
 	private void findAllViewById()
@@ -156,3 +219,4 @@ public class MainActivity extends Activity {
 	}
 
 };
+

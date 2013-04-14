@@ -10,5 +10,13 @@
     <string name="day">Day</string>
     <string name="night">Night</string>
     <string name="fare"/>
+    <string-array name="city_options">
+        <item>Mumbai</item>
+        <item>Thane</item>
+    </string-array>
+    <string-array name="type_options">
+        <item>Auto</item>
+        <item>Taxi</item>
+    </string-array>
 
 </resources>

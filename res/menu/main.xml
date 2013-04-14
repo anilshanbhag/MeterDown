@@ -1,5 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
+    
+    
+	<item
+	    android:id="@+id/menu_city_spinner"
+    	android:actionViewClass="android.widget.Spinner"
+    	android:showAsAction="always"/>
+  	<item
+	    android:id="@+id/menu_type_spinner"
+	    android:actionViewClass="android.widget.Spinner"
+	    android:showAsAction="always"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

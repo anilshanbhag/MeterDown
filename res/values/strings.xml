@@ -18,5 +18,7 @@
         <item>Auto</item>
         <item>Taxi</item>
     </string-array>
+    <string name="tabText1">Meter</string>
+    <string name="tabText2">Card</string>
 
 </resources>

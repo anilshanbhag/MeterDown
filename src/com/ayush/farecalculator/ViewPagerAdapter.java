@@ -8,11 +8,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     private Context _context;
  
-    public ViewPagerAdapter(Context context, FragmentManager fm) {
+    public ViewPagerAdapter(Context context, FragmentManager fm) 
+    {
         super(fm);
         _context=context;
  
-        }
+    }
     @Override
     public Fragment getItem(int position) {
         Fragment f = new Fragment();
@@ -27,7 +28,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return f;
     }
     @Override
-    public int getCount() {
+    public int getCount() 
+    {
         return 2;
     }
  

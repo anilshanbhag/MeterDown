@@ -16,11 +16,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
  
-public class Calculate extends Fragment 
+public class Calculate extends Fragment
 {
 	private Button fareCal;
 	private TextView fareView;
 	private EditText distanceInp;
+	private EditText unitInp;
 	private RadioGroup timeRadioGroup;
 	private RadioButton dayButton;
 	private RadioButton nightButton;
@@ -47,10 +48,16 @@ public class Calculate extends Fragment
 			@Override
 			public void onClick(View v)
 			{
-				int distance=0;
+				double distance=0;
+				double unit=0;
 				
 				try {
-				    distance = Integer.parseInt(distanceInp.getText().toString());
+				    distance = Double.parseDouble(distanceInp.getText().toString());
+				} catch(NumberFormatException nfe) {
+				   System.out.println("Could not parse " + nfe);
+				} 
+				try {
+				    unit = Double.parseDouble(unitInp.getText().toString());
 				} catch(NumberFormatException nfe) {
 				   System.out.println("Could not parse " + nfe);
 				} 
@@ -74,11 +81,14 @@ public class Calculate extends Fragment
     private void findAllViewById(ViewGroup root)
 	{
 		fareCal=(Button) root.findViewById(R.id.button1);
-		distanceInp=(EditText)root.findViewById(R.id.edit_text);
+		distanceInp=(EditText)root.findViewById(R.id.edit_text_dist);
+		unitInp=(EditText)root.findViewById(R.id.edit_text_unit);
 		fareView=(TextView)root.findViewById(R.id.textView1);
 		timeRadioGroup=(RadioGroup)root.findViewById(R.id.search_radio_group);
 		dayButton=(RadioButton)root.findViewById(R.id.day_button);
 		nightButton=(RadioButton)root.findViewById(R.id.night_button);
+		dayButton.setOnClickListener(radioButtonListener);
+		nightButton.setOnClickListener(radioButtonListener);
 		
 	}
     public void displayString(CharSequence message)
@@ -86,7 +96,7 @@ public class Calculate extends Fragment
 		fareView.setText("The Fare is Rs."+message);
 	}
 	
-	private void calculateMumbaiAutoFare(int distance)
+	private void calculateMumbaiAutoFare(double distance)
 	{
 		double dist=(distance/200)*0.2;
 		double fareTemp=(9.87*dist)*factor;
@@ -98,7 +108,7 @@ public class Calculate extends Fragment
 		String s=Integer.toString(fare);
 		displayString(s);
 	}
-	private void calculateMumbaiTaxiFare(int distance)
+	private void calculateMumbaiTaxiFare(double distance)
 	{
 		double units=(((double)distance)/1000*0.6)+0.04;
 		int temp=(int)(units*10);
@@ -113,20 +123,23 @@ public class Calculate extends Fragment
 	    DecimalFormat twoDForm = new DecimalFormat("#");
 	    return Integer.valueOf(twoDForm.format(d));
 	}
-	public void onRadioButtonClicked(View view) {
-	    // Is the button now checked?
-	    boolean checked = ((RadioButton) view).isChecked();
-	    // Check which radio button was clicked
-	    switch(view.getId()) {
-	        case R.id.day_button:
-	            if (checked)
-	                factor=1;
-	            break;
-	        case R.id.night_button:
-	            if (checked)
+	private OnClickListener radioButtonListener = new OnClickListener() {
+		
+		public void onClick(View view) {
+			// Is the button now checked?
+			boolean checked = ((RadioButton) view).isChecked();
+			// 	Check which radio button was clicked
+			switch(view.getId()) {
+				case R.id.day_button:
+					if (checked)
+						factor=1;
+					break;
+				case R.id.night_button:
+					if (checked)
 	                factor=1.25;
-	            break;
+					break;
+			}
 	    }
-	}
+	};
  
 }

@@ -38,25 +38,28 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int DistanceSubLayout=0x7f0a000e;
         public static final int LinearLayout1=0x7f0a0006;
-        public static final int SubLayout=0x7f0a000b;
-        public static final int TextView1=0x7f0a000c;
-        public static final int action_settings=0x7f0a0013;
-        public static final int button1=0x7f0a000e;
+        public static final int SubLayout=0x7f0a000a;
+        public static final int UnitSubLayout=0x7f0a000b;
+        public static final int action_settings=0x7f0a0016;
+        public static final int button1=0x7f0a0011;
         public static final int day_button=0x7f0a0008;
-        public static final int edit_text=0x7f0a000d;
-        public static final int first_tab=0x7f0a000f;
+        public static final int edit_text_dist=0x7f0a0010;
+        public static final int edit_text_unit=0x7f0a000d;
+        public static final int first_tab=0x7f0a0012;
         public static final int first_text=0x7f0a0001;
-        public static final int menu_city_spinner=0x7f0a0011;
-        public static final int menu_type_spinner=0x7f0a0012;
+        public static final int menu_city_spinner=0x7f0a0014;
+        public static final int menu_type_spinner=0x7f0a0015;
         public static final int night_button=0x7f0a0009;
         public static final int search_radio_group=0x7f0a0007;
-        public static final int second_tab=0x7f0a0010;
+        public static final int second_tab=0x7f0a0013;
         public static final int second_text=0x7f0a0003;
         public static final int tableRow1=0x7f0a0000;
         public static final int textView1=0x7f0a0002;
         public static final int textView2=0x7f0a0004;
-        public static final int togglebutton=0x7f0a000a;
+        public static final int text_view_dist=0x7f0a000f;
+        public static final int text_view_unit=0x7f0a000c;
         public static final int viewPager=0x7f0a0005;
     }
     public static final class layout {
@@ -69,12 +72,14 @@ public final class R {
         public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int Enter_val=0x7f050003;
-        public static final int action_settings=0x7f050001;
+        public static final int Unit=0x7f05000c;
+        public static final int action_about=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int calculate=0x7f050005;
         public static final int day=0x7f050006;
         public static final int distance=0x7f050004;
+        public static final int enter_dist=0x7f050003;
+        public static final int enter_unit=0x7f05000b;
         public static final int fare=0x7f050008;
         public static final int hello_world=0x7f050002;
         public static final int night=0x7f050007;

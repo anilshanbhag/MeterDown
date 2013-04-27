@@ -25,6 +25,7 @@
             android:layout_height="20dp"
             android:checked="true"
             android:text="@string/day"
+            android:onClick="onRadioButtonClicked"
     		android:paddingRight="@dimen/activity_horizontal_margin" />
 
         <RadioButton
@@ -33,40 +34,66 @@
             android:layout_height="20dp"
             android:checked="false"
             android:text="@string/night"
+            android:onClick="onRadioButtonClicked"
     		android:paddingRight="@dimen/activity_horizontal_margin" />
     </RadioGroup>
-    
-    <Switch
-        android:id="@+id/togglebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:onClick="onSwitchClicked"
-        android:layout_gravity="center_horizontal"
-        android:textOff="Distance"
-        android:textOn="Unit" />
 	
     <LinearLayout
         android:id="@+id/SubLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="horizontal" 
+        android:baselineAligned="false"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+    	android:paddingTop="@dimen/activity_vertical_margin">
         
-        <TextView
-        	android:id="@+id/TextView1"
+        <LinearLayout
+            android:id="@+id/UnitSubLayout"
         	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
-        	android:text="@string/Enter_val"
-        	android:textSize="@dimen/textsize"
-        	 />
+        	android:orientation="vertical"
+        	android:gravity="center_horizontal"
+        	android:layout_weight="1">
+        	
+            <TextView
+        		android:id="@+id/text_view_unit"
+	        	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/enter_unit"
+        		android:textSize="@dimen/textsize"/>
+            <EditText
+        		android:id="@+id/edit_text_unit"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/Unit">
+    		</EditText>
+            
+        </LinearLayout>
         
-        <EditText
-        	android:id="@+id/edit_text"
-        	android:layout_width="fill_parent"
-        	android:layout_height="wrap_content"
-        	android:hint="@string/distance">
-    	</EditText>
+        <LinearLayout
+            android:id="@+id/DistanceSubLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_weight="1" >
+        	
+            <TextView
+        		android:id="@+id/text_view_dist"
+	        	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/enter_dist"
+        		android:textSize="@dimen/textsize"/>
+            <EditText
+        		android:id="@+id/edit_text_dist"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:hint="@string/distance">
+    		</EditText>
+            
+        </LinearLayout>
+        
+        
         
     </LinearLayout>
     
@@ -75,7 +102,9 @@
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_gravity="center_horizontal"
-	    android:text="@string/calculate" />
+	    android:text="@string/calculate" 
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+    	android:paddingTop="@dimen/activity_vertical_margin"/>
 
 	<TextView
         android:id="@+id/textView1"

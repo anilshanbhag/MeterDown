@@ -29,9 +29,14 @@ public class Calculate extends Fragment
 	int choice,fare,cityno;
     double factor=1;
 	
-    public static Fragment newInstance(Context context) {
+    public static Fragment newInstance(Context context){
         Calculate f = new Calculate();
         return f;
+    }
+    public void setArguments(Bundle args)
+    {
+    	choice=args.getInt("ch");
+    	cityno=args.getInt("city");
     }
  
     @Override
@@ -52,14 +57,14 @@ public class Calculate extends Fragment
 				double unit=0;
 				
 				try {
-				    distance = Double.parseDouble(distanceInp.getText().toString());
+					distance = Double.parseDouble(distanceInp.getText().toString());
 				} catch(NumberFormatException nfe) {
-				   System.out.println("Could not parse " + nfe);
+					System.out.println("Could not parse " + nfe);
 				} 
 				try {
-				    unit = Double.parseDouble(unitInp.getText().toString());
+					unit = Double.parseDouble(unitInp.getText().toString());
 				} catch(NumberFormatException nfe) {
-				   System.out.println("Could not parse " + nfe);
+					System.out.println("Could not parse " + nfe);
 				} 
 				switch (choice)
 				{
@@ -67,11 +72,18 @@ public class Calculate extends Fragment
 						switch (cityno)
 						{
 							case 0:
-								calculateMumbaiAutoFare(distance);
+								calculateMumbaiAutoFare(distance);								
 								break;
 							case 1:
+								break;	
 								
-								
+						}
+					case 1:
+						switch(cityno)
+						{
+							case 0:
+								calculateMumbaiTaxiFare(distance);
+								break;
 						}
 				}
 			}
@@ -95,7 +107,6 @@ public class Calculate extends Fragment
 	{
 		fareView.setText("The Fare is Rs."+message);
 	}
-	
 	private void calculateMumbaiAutoFare(double distance)
 	{
 		double dist=(distance/200)*0.2;

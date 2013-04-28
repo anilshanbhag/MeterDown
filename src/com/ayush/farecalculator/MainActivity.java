@@ -92,6 +92,7 @@ public class MainActivity extends FragmentActivity {
 	{
 		_mViewPager=(ViewPager)findViewById(R.id.viewPager);
 		_adapter = new ViewPagerAdapter(getApplicationContext(),getSupportFragmentManager());
+		_adapter.setVal(cityno,choice);
 		_mViewPager.setAdapter(_adapter);
 		_mViewPager.setCurrentItem(0);
 	}

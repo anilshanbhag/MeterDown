@@ -38,8 +38,9 @@ public class MainActivity extends SherlockActivity {
 	private RadioButton distButton;
 	private Context context;
 	
-	int choice=0,fare,cityno,nightMode=0,pref,inpmode=0;
+	int choice,fare,cityno,nightMode,pref,inpmode;
 	double distance,unit;
+	
     
     String city[]=new String[]{
     	"Mumbai",
@@ -49,6 +50,13 @@ public class MainActivity extends SherlockActivity {
     	"Hyderabad",
     	"Delhi"
     };
+    public MainActivity()
+    {
+    	choice=0;
+    	cityno=0;
+    	inpmode=0;
+    	nightMode=0;
+    }
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -130,6 +138,7 @@ public class MainActivity extends SherlockActivity {
 							}
 							break;
 					}
+					unit=roundTwoDec(unit);
 					unitInp.setText(Double.toString(unit));
 				}
 			
@@ -279,6 +288,8 @@ public class MainActivity extends SherlockActivity {
 	private void FareCard()
 	{
 		Intent intent = new Intent(context, WebViewActivity.class);
+		intent.putExtra("cityno", cityno);
+		intent.putExtra("choice", choice);
 	    startActivity(intent);
 	}
 	private void findAllViewById()
@@ -308,32 +319,27 @@ public class MainActivity extends SherlockActivity {
     	{
     		unit=1;
     	}
-    	unitInp.setText(Double.toString(unit));
     }
     private void calculateMumbaiAutoDist()
     {
     	distance=(unit-0.2)*2;
-    	distanceInp.setText(Double.toString(distance));
     }
 	private void calculateMumbaiAutoFare()
 	{
 		
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.25;
 		
-		double fareTemp=19.74*unit;
+		double fareTemp=15+19.74*(unit-1);
 		fare=round(fareTemp*factor);
 	}
 	private void calculatePuneAutoUnit()
 	{
-		int distance1=(int)(distance*1000);
-		distance1=distance1/100;
-		double units=((double)(distance1))/10;
-		if(units<1)
-			units=1;
+		int distance1=(int)(distance*10);
+		unit=((double)(distance1))/10;
+		if(unit<1)
+			unit=1.0;
 	}
 	private void calculatePuneAutoDist()
 	{
@@ -341,10 +347,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculatePuneAutoFare()
 	{
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.5;
 		double fareTemp=11+(unit-1)*10;
 		fare=round(fareTemp*factor);		
@@ -363,10 +367,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateKolkataTaxiFare()
 	{
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.15;
 		
 		double fareTemp=unit*2.4+1;
@@ -385,10 +387,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateBengaluruAutoFare()
 	{
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.50;
 		double fareTemp=20+(unit-1.8)*11;
 		fare=round(fareTemp*factor);
@@ -396,9 +396,9 @@ public class MainActivity extends SherlockActivity {
 	private void calculateHyderabadAutoUnit()
 	{
 		int temp=(int)(distance*10);
-		double units=((double)temp)/10;
-		if(units<1.6)
-			units=1.6;
+		unit=((double)temp)/10;
+		if(unit<1.6)
+			unit=1.6;
 	}
 	private void calculateHyderabadAutoDist()
 	{
@@ -406,10 +406,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateHyderabadAutoFare()
 	{
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.50;
 		double fareTemp=16+(unit-1.6)*9;
 		fare=round(fareTemp*factor);
@@ -431,10 +429,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateMumbaiTaxiFare()
 	{
-		double factor;
-		if(nightMode==0)
-			factor=1;
-		else 
+		double factor=1;
+		if(nightMode==1)
 			factor=1.25;
 		double fareTemp=19.296875*unit;
 		fare=round(fareTemp*factor);
@@ -454,7 +450,7 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateDelhiAutoFare()
 	{
-		double factor=0;
+		double factor=1;
 		if(nightMode==1)
 			factor=1.25;
 		double fareTemp=25+(unit-2)*8;
@@ -474,10 +470,11 @@ public class MainActivity extends SherlockActivity {
 	}
 	private void calculateDelhiTaxiFare()
 	{
-		double factor=0;
+		double factor=1;
 		if(nightMode==1)
 			factor=1.25;
 		double fareTemp=25+(unit-1)*14;
+		fare=round(fareTemp*factor);
 	}
 	
 	int round(double d)
@@ -498,26 +495,21 @@ public class MainActivity extends SherlockActivity {
 		if (view.getId() == R.id.day_button) {
 			if (checked)
 				nightMode=0;
-				nightButton.setChecked(false);
 		} else if (view.getId() == R.id.night_button) {
 			if (checked){
 				nightMode=1;
-				dayButton.setChecked(false);
 			}
 		} else if (view.getId() == R.id.auto_button) {
 			if(checked){
 				choice=0;
-				taxiButton.setChecked(false);
 			}
 		} else if (view.getId() == R.id.taxi_button) {
 			if(checked){
 				choice=1;
-				autoButton.setChecked(false);
 			}
 		}else if (view.getId() == R.id.unit_button) {
 			if(checked){
 				inpmode=1;
-				distButton.setChecked(false);
 				distanceInp.setEnabled(false);
 				distanceInp.setInputType(InputType.TYPE_NULL);
 				unitInp.setEnabled(true);
@@ -528,7 +520,6 @@ public class MainActivity extends SherlockActivity {
 		}else if (view.getId() == R.id.dist_button) {
 			if(checked){
 				inpmode=0;
-				unitButton.setChecked(false);
 				unitInp.setEnabled(false);
 				unitInp.setInputType(InputType.TYPE_NULL);
 				distanceInp.setEnabled(true);

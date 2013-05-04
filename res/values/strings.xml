@@ -15,5 +15,6 @@
     <string name="auto">Auto</string>
     <string name="dist">Distance</string>
     <string name="unit">Units</string>
+    <string name="settings_title">Settings</string>
 
 </resources>

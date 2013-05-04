@@ -2,8 +2,6 @@ package com.exzalt.MeterDown;
 
 import java.text.DecimalFormat;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,11 +16,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-
-
 
 public class MainActivity extends SherlockActivity {
 	
@@ -200,7 +198,7 @@ public class MainActivity extends SherlockActivity {
 		        
 		        
 	  	/**Defining Navigation listener*/ 
-        ActionBar.OnNavigationListener navigationListener = new OnNavigationListener() {
+        OnNavigationListener navigationListener = new OnNavigationListener() {
         	@Override
          	public boolean onNavigationItemSelected(int itemPosition, long itemId) 
          	{
@@ -239,12 +237,12 @@ public class MainActivity extends SherlockActivity {
 		
         };
 		
-		getActionBar().setListNavigationCallbacks(adapter, navigationListener);
+		getSupportActionBar().setListNavigationCallbacks(adapter, navigationListener);
 		
 		// Restore preferences
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         int pref = settings.getInt("cityno", 0);
-        getActionBar().setSelectedNavigationItem(pref);
+        getSupportActionBar().setSelectedNavigationItem(pref);
     }
 	 @Override
     protected void onStop(){

@@ -3,15 +3,12 @@
 
     <string name="app_name">Meter Down</string>
     <string name="FareCard">Fare Card</string>
-    <string name="hello_world">Hello world!</string>
     <string name="enter_dist">Distance :</string>
     <string name="distance">in km</string>
     <string name="calculate">Fare</string>
     <string name="day">Day</string>
     <string name="night">Night</string>
     <string name="fare"/>
-    <string name="tabText1">Meter</string>
-    <string name="tabText2">Card</string>
     <string name="enter_unit">Units:</string>
     <string name="Unit">unit</string>
     <string name="taxi">Taxi</string>

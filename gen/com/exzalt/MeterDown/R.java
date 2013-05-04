@@ -919,14 +919,18 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
         public static final int action_bar_background=0x7f020070;
-        public static final int background=0x7f020071;
-        public static final int ic_launcher=0x7f020072;
+        public static final int distance_unit_background=0x7f020071;
+        public static final int fare_container_background=0x7f020072;
+        public static final int ic_launcher=0x7f020073;
+        public static final int main_layout_border=0x7f020074;
     }
     public static final class id {
-        public static final int DistanceSubLayout=0x7f040034;
+        public static final int DistanceSubLayout=0x7f040035;
+        public static final int FareContainer=0x7f040033;
         public static final int RelativeLayout1=0x7f040032;
-        public static final int SubLayout=0x7f040033;
-        public static final int UnitSubLayout=0x7f040037;
+        public static final int SettingContainer=0x7f04003d;
+        public static final int SubLayout=0x7f040034;
+        public static final int UnitSubLayout=0x7f040038;
         public static final int abs__action_bar=0x7f040020;
         public static final int abs__action_bar_container=0x7f04001f;
         public static final int abs__action_bar_subtitle=0x7f040011;
@@ -966,30 +970,33 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_farecard=0x7f040043;
-        public static final int auto_button=0x7f04003c;
+        public static final int action_farecard=0x7f040048;
+        public static final int auto_button=0x7f040042;
         public static final int button1=0x7f04003b;
-        public static final int day_button=0x7f040040;
+        public static final int day_button=0x7f040045;
+        public static final int day_night_radiogroup=0x7f040044;
         public static final int disableHome=0x7f040009;
-        public static final int dist_button=0x7f04003d;
+        public static final int dist_button=0x7f04003f;
         public static final int edit_query=0x7f040026;
-        public static final int edit_text_dist=0x7f040036;
-        public static final int edit_text_unit=0x7f040039;
+        public static final int edit_text_dist=0x7f040037;
+        public static final int edit_text_unit=0x7f04003a;
         public static final int homeAsUp=0x7f040006;
+        public static final int inp_type_radiogroup=0x7f04003e;
         public static final int listMode=0x7f040002;
-        public static final int night_button=0x7f040041;
+        public static final int night_button=0x7f040046;
         public static final int normal=0x7f040001;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
-        public static final int taxi_button=0x7f04003e;
-        public static final int textView1=0x7f04003a;
-        public static final int text_view_dist=0x7f040035;
-        public static final int text_view_unit=0x7f040038;
-        public static final int unit_button=0x7f04003f;
+        public static final int taxi_button=0x7f040043;
+        public static final int textView1=0x7f04003c;
+        public static final int text_view_dist=0x7f040036;
+        public static final int text_view_unit=0x7f040039;
+        public static final int unit_button=0x7f040040;
         public static final int useLogo=0x7f040004;
-        public static final int webview=0x7f040042;
+        public static final int vehicle_type_radiogroup=0x7f040041;
+        public static final int webview=0x7f040047;
         public static final int wrap_content=0x7f040000;
     }
     public static final class integer {
@@ -1027,7 +1034,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int FareCard=0x7f09000e;
-        public static final int Unit=0x7f090019;
+        public static final int Unit=0x7f090016;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f090000;
@@ -1068,20 +1075,17 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
         public static final int app_name=0x7f09000d;
-        public static final int auto=0x7f09001b;
-        public static final int calculate=0x7f090012;
-        public static final int day=0x7f090013;
-        public static final int dist=0x7f09001c;
-        public static final int distance=0x7f090011;
-        public static final int enter_dist=0x7f090010;
-        public static final int enter_unit=0x7f090018;
-        public static final int fare=0x7f090015;
-        public static final int hello_world=0x7f09000f;
-        public static final int night=0x7f090014;
-        public static final int tabText1=0x7f090016;
-        public static final int tabText2=0x7f090017;
-        public static final int taxi=0x7f09001a;
-        public static final int unit=0x7f09001d;
+        public static final int auto=0x7f090018;
+        public static final int calculate=0x7f090011;
+        public static final int day=0x7f090012;
+        public static final int dist=0x7f090019;
+        public static final int distance=0x7f090010;
+        public static final int enter_dist=0x7f09000f;
+        public static final int enter_unit=0x7f090015;
+        public static final int fare=0x7f090014;
+        public static final int night=0x7f090013;
+        public static final int taxi=0x7f090017;
+        public static final int unit=0x7f09001a;
     }
     public static final class style {
         /** 

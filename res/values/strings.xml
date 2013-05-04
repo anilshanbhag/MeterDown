@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Fare Calculator</string>
+    <string name="app_name">Meter Down</string>
     <string name="FareCard">Fare Card</string>
     <string name="hello_world">Hello world!</string>
     <string name="enter_dist">Distance :</string>
@@ -16,5 +16,7 @@
     <string name="Unit">unit</string>
     <string name="taxi">Taxi</string>
     <string name="auto">Auto</string>
+    <string name="dist">Distance</string>
+    <string name="unit">Units</string>
 
 </resources>

@@ -49,7 +49,7 @@ public class MainActivity extends SherlockActivity {
     	"Bengaluru",
     	"Kolkata",
     	"Hyderabad",
-    	"Surat"
+    	"Delhi"
     };
     
 	@Override
@@ -108,6 +108,10 @@ public class MainActivity extends SherlockActivity {
 									calculateHyderabadAutoUnit();
 									calculateHyderabadAutoFare();
 									break;
+								case 5:
+									calculateDelhiAutoUnit();
+									calculateDelhiAutoFare();
+									break;
 							}
 							break;
 						case 1:
@@ -120,6 +124,10 @@ public class MainActivity extends SherlockActivity {
 								case 3:
 									calculateKolkataTaxiUnit();
 									calculateKolkataTaxiFare();
+									break;
+								case 5:
+									calculateDelhiTaxiUnit();
+									calculateDelhiTaxiFare();
 									break;
 							}
 							break;
@@ -149,7 +157,11 @@ public class MainActivity extends SherlockActivity {
 								case 4:
 									calculateHyderabadAutoDist();
 									calculateHyderabadAutoFare();
-									break;		
+									break;	
+								case 5:
+									calculateDelhiAutoDist();
+									calculateDelhiTaxiFare();
+									break;
 							}
 							break;
 						case 1:
@@ -162,6 +174,10 @@ public class MainActivity extends SherlockActivity {
 								case 3:
 									calculateKolkataTaxiDist();
 									calculateKolkataTaxiFare();
+									break;
+								case 5:
+									calculateDelhiTaxiDist();
+									calculateDelhiTaxiFare();
 									break;
 							}
 							break;
@@ -194,7 +210,6 @@ public class MainActivity extends SherlockActivity {
      				case 1:
      				case 2:
      				case 4:
-     				case 5:
      					autoButton.setEnabled(true);
      					autoButton.setChecked(true);
      					taxiButton.setEnabled(false);
@@ -426,6 +441,47 @@ public class MainActivity extends SherlockActivity {
 		double fareTemp=19.296875*unit;
 		fare=round(fareTemp*factor);
 	}
+	private void calculateDelhiAutoUnit()
+	{
+		int temp=(int)(distance*10);
+		unit=((double)temp)/10;
+		if(unit<2)
+		{
+			unit=2;
+		}
+	}
+	private void calculateDelhiAutoDist()
+	{
+		distance=unit;
+	}
+	private void calculateDelhiAutoFare()
+	{
+		double factor=0;
+		if(nightMode==1)
+			factor=1.25;
+		double fareTemp=25+(unit-2)*8;
+		fare=round(fareTemp*factor);
+	}
+	private void calculateDelhiTaxiUnit()
+	{
+		int temp=(int)(distance*10);
+		unit=((double)temp)/10;
+		if(unit<2)
+			unit=2;
+		
+	}
+	private void calculateDelhiTaxiDist()
+	{
+		distance=unit;
+	}
+	private void calculateDelhiTaxiFare()
+	{
+		double factor=0;
+		if(nightMode==1)
+			factor=1.25;
+		double fareTemp=25+(unit-1)*14;
+	}
+	
 	int round(double d)
 	{
 	    DecimalFormat twoDForm = new DecimalFormat("#");

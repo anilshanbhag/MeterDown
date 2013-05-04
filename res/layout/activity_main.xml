@@ -39,7 +39,9 @@
         		android:id="@+id/edit_text_dist"
         		android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
-        		android:hint="@string/distance">
+        		android:hint="@string/distance"
+        		android:numeric="decimal"
+        		android:maxLength="3">
     		</EditText>
             
         </LinearLayout>
@@ -61,7 +63,9 @@
         		android:id="@+id/edit_text_unit"
         		android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
-        		android:hint="@string/Unit">
+        		android:hint="@string/Unit"
+        		android:numeric="decimal"
+        		android:maxLength="3">
     		</EditText>
             
         </LinearLayout>

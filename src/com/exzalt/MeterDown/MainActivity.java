@@ -1,7 +1,6 @@
 package com.exzalt.MeterDown;
 
 import java.text.DecimalFormat;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -297,7 +296,7 @@ public class MainActivity extends SherlockActivity {
 		fareCal=(Button) findViewById(R.id.button1);
 		distanceInp=(EditText)findViewById(R.id.edit_text_dist);
 		unitInp=(EditText)findViewById(R.id.edit_text_unit);
-		fareView=(TextView)findViewById(R.id.textView1);
+		fareView=(TextView)findViewById(R.id.textViewFareValue);
 		dayButton=(RadioButton)findViewById(R.id.day_button);
 		nightButton=(RadioButton)findViewById(R.id.night_button);
 		autoButton=(RadioButton)findViewById(R.id.auto_button);
@@ -308,7 +307,7 @@ public class MainActivity extends SherlockActivity {
 	}
     public void displayString(CharSequence message)
 	{
-		fareView.setText("The Fare is Rs."+message);
+		fareView.setText("Rs."+message);
 	}
     private void calculateMumbaiAutoUnit()
     {

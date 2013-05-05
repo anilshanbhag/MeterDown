@@ -919,17 +919,21 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
         public static final int action_bar_background=0x7f020070;
-        public static final int distance_unit_background=0x7f020071;
-        public static final int fare_container_background=0x7f020072;
+        public static final int fare_container_background=0x7f020071;
+        public static final int fare_textview_background=0x7f020072;
         public static final int ic_launcher=0x7f020073;
         public static final int main_layout_border=0x7f020074;
+        public static final int radio_background=0x7f020075;
+        public static final int settings_container_background=0x7f020076;
+        public static final int settings_title_background=0x7f020077;
+        public static final int unit_distance_background=0x7f020078;
     }
     public static final class id {
         public static final int DistanceSubLayout=0x7f040035;
         public static final int FareContainer=0x7f040033;
-        public static final int RelativeLayout1=0x7f040032;
-        public static final int SettingContainer=0x7f04003d;
-        public static final int SettingTitle=0x7f04003e;
+        public static final int LinearLayout1=0x7f040032;
+        public static final int SettingContainer=0x7f04003f;
+        public static final int SettingTitle=0x7f040040;
         public static final int SubLayout=0x7f040034;
         public static final int UnitSubLayout=0x7f040038;
         public static final int abs__action_bar=0x7f040020;
@@ -971,34 +975,36 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_farecard=0x7f04004a;
-        public static final int auto_button=0x7f040044;
+        public static final int action_farecard=0x7f04004c;
+        public static final int auto_button=0x7f040046;
         public static final int button1=0x7f04003b;
-        public static final int day_button=0x7f040047;
-        public static final int day_night_radiogroup=0x7f040046;
+        public static final int day_button=0x7f040049;
+        public static final int day_night_radiogroup=0x7f040048;
         public static final int disableHome=0x7f040009;
-        public static final int dist_button=0x7f040041;
+        public static final int dist_button=0x7f040043;
         public static final int edit_query=0x7f040026;
         public static final int edit_text_dist=0x7f040037;
         public static final int edit_text_unit=0x7f04003a;
+        public static final int fareDisplay=0x7f04003c;
         public static final int homeAsUp=0x7f040006;
-        public static final int inp_type_radiogroup=0x7f040040;
+        public static final int inp_type_radiogroup=0x7f040042;
         public static final int listMode=0x7f040002;
-        public static final int night_button=0x7f040048;
+        public static final int night_button=0x7f04004a;
         public static final int normal=0x7f040001;
-        public static final int settings_title=0x7f04003f;
+        public static final int settings_title=0x7f040041;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
-        public static final int taxi_button=0x7f040045;
-        public static final int textView1=0x7f04003c;
+        public static final int taxi_button=0x7f040047;
+        public static final int textViewFare=0x7f04003d;
+        public static final int textViewFareValue=0x7f04003e;
         public static final int text_view_dist=0x7f040036;
         public static final int text_view_unit=0x7f040039;
-        public static final int unit_button=0x7f040042;
+        public static final int unit_button=0x7f040044;
         public static final int useLogo=0x7f040004;
-        public static final int vehicle_type_radiogroup=0x7f040043;
-        public static final int webview=0x7f040049;
+        public static final int vehicle_type_radiogroup=0x7f040045;
+        public static final int webview=0x7f04004b;
         public static final int wrap_content=0x7f040000;
     }
     public static final class integer {
@@ -1101,19 +1107,30 @@ containing a value of this type.
             backward-compatibility can go here.
         
 
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
- API 11 theme customizations can go here. 
 
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
- API 14 theme customizations can go here. 
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f0a0059;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0a005a;

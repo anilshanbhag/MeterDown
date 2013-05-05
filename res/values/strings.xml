@@ -5,11 +5,11 @@
     <string name="FareCard">Fare Card</string>
     <string name="enter_dist">Distance :</string>
     <string name="distance">in km</string>
-    <string name="calculate">Fare</string>
+    <string name="calculate">Calculate</string>
     <string name="day">Day</string>
     <string name="night">Night</string>
-    <string name="fare"/>
-    <string name="enter_unit">Units:</string>
+    <string name="fare">Fare :</string>
+    <string name="enter_unit">Units :</string>
     <string name="Unit">unit</string>
     <string name="taxi">Taxi</string>
     <string name="auto">Auto</string>

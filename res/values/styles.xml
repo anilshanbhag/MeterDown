@@ -22,7 +22,7 @@
     
     <style name="customActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/action_bar_background</item>
-        <item name="android:background">@drawable/action_bar_background</item>
+        <item name="@android:background">@drawable/action_bar_background</item>
         
         <item name="displayOptions">showHome</item>
     </style>
